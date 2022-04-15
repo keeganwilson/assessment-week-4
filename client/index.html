@@ -5,41 +5,28 @@
     <link rel="stylesheet" href="../client/styles.css">
   </head>
   <body class="container">
-    <header>
-      <h1>Climbing Tick List</h1>
-    </header>
     <main>
+      <header>
+        <h1>Welcome to Your Tick List!</h1>
+        <h2>The best place to log your route ticks.</h2>
+        <h2>You can also see how you did or how you will do on a route.</h2>
+      </header>
+      <section id="comppred">
+        <button id="complimentButton">How did I do?</button>
+        <button id="predictButton">Will I send today?</button>
+      </section>
+      <section id="addRoute">
+        <h3>Add a new tick to your list here:</h3>
+      <form>
+        <input id="name" placeholder=" Route Name"/>
+        <input id="diff" placeholder=" Difficulty"/>
+        <input id="grade" placeholder=" Grade"/>
+        <input id="img" placeholder=" Route image URL"/>
+      </form>
+      </section>
+      <section id="routes">
 
-    <button id="complimentButton">How did I do?</button>
-    <button id="predictButton">Will I send today?</button>
-    <h1>Add a new tick</h1>
-    <form>
-      <input 
-        type='text'
-        id="name"
-        placeholder="Route name"/>
-      <input
-        type="text"
-        id="difficulty"
-        placeholder="Difficulty"/>
-      <input
-        type="text"
-        id="grade"
-        placeholder="Grade"/>
-      <input
-        type="text"
-        id="ticks"
-        placeholder="Times climbed"/>
-      <input 
-        type='text'
-        id="img"
-        placeholder='Paste an image URL'/>
-      <button ie="addTickButton">Add Tick</button>
-    </form>
-    </main>
-    </main>
-    <section id="routes-container"></section>
-
+      </section>
     </main>
     
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
