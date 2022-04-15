@@ -1,11 +1,47 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Back End Assessment</title>
+    <title>Your Tick List</title>
+    <link rel="stylesheet" href="../client/styles.css">
   </head>
   <body class="container">
-    <button id="complimentButton">Get a compliment</button>
+    <header>
+      <h1>Climbing Tick List</h1>
+    </header>
+    <main>
 
+    <button id="complimentButton">How did I do?</button>
+    <button id="predictButton">Will I send today?</button>
+    <h1>Add a new tick</h1>
+    <form>
+      <input 
+        type='text'
+        id="name"
+        placeholder="Route name"/>
+      <input
+        type="text"
+        id="difficulty"
+        placeholder="Difficulty"/>
+      <input
+        type="text"
+        id="grade"
+        placeholder="Grade"/>
+      <input
+        type="text"
+        id="ticks"
+        placeholder="Times climbed"/>
+      <input 
+        type='text'
+        id="img"
+        placeholder='Paste an image URL'/>
+      <button ie="addTickButton">Add Tick</button>
+    </form>
+    </main>
+    </main>
+    <section id="routes-container"></section>
+
+    </main>
+    
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./main.js"></script>
   </body>

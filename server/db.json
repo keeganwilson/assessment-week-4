@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "The Nose, El Capitan",
+        "difficulty": "5.9 C2",
+        "grade": "VI",
+        "ticks": "2",
+        "imageURL": "https://cdn2.apstatic.com/photos/climb/113207490_medium_1498309301.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Regular Northwest Face, Half Dome",
+        "difficulty": "5.9 C1",
+        "grade": "VI",
+        "ticks": "1",
+        "imageURL": "https://cdn2.apstatic.com/photos/climb/113236401_medium_1498841706.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Astroman, Washington Column",
+        "difficulty": "5.11c",
+        "grade": "IV",
+        "ticks": "1",
+        "imageURL": "https://cdn2.apstatic.com/photos/climb/121983124_medium_1645149879.jpg"
+    }
+]
