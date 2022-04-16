@@ -3,7 +3,7 @@ let routes = require('./db.json')
 let globalID = 4;
 
 module.exports = {
-    getRoutes: (req, res) => res.status(200).send(routes),
+    getAllRoutes: (req, res) => res.status(200).send(routes),
 
     deleteRoute: (req, res) => {
         let index = routes.findIndex(elem => elem.id === +req.params.id);
