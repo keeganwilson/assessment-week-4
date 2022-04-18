@@ -1,6 +1,6 @@
 let routes = require('./db.json')
 
-let globalID = 4;
+let globalID = routes.length + 1;
 
 module.exports = {
     getAllRoutes: (req, res) => res.status(200).send(routes),
@@ -10,11 +10,11 @@ module.exports = {
         res.status(200).send(routes)
   },
     addRoute: (req, res) => {
-        const {name, difficulty, grade, ticks, imageURL} = req.body;
+        const {name, diff, grade, ticks, imageURL} = req.body;
         let newRoute = {
             id: globalID,
             name,
-            difficulty,
+            diff,
             grade,
             ticks,
             imageURL

@@ -12,9 +12,9 @@ const {getAllRoutes, deleteRoute, addRoute, addTick} = require('./routesCtrl.js'
 app.get('/api/compliment', getCompliment);
 app.get('/api/prediction', getPrediction);
 
-app.get('/api/routes', getAllRoutes);
-app.delete('api/routes/:id', deleteRoute);
-app.post('api/routes', addRoute);
-app.put('api/routes/:id', addTick);
+app.get('/api/routes/', getAllRoutes);
+app.post('/api/routes/', addRoute);
+app.delete('/api/routes/:id', deleteRoute);
+app.put('/api/routes/:id', addTick);
 
 app.listen(4000, () => console.log("Server running on 4000"));

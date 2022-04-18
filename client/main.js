@@ -22,35 +22,36 @@ document.getElementById("predictButton").addEventListener('click', () => {
 const routesCallback = ({ data: routes }) => displayRoutes(routes);
 const errCallback = err => console.log(err);
 
-const getAllRoutes = () => axios.get(`${baseURL}/routes`).then(routesCallback).catch(errCallback);
-const addRoute = () => axios.get(`${baseURL}/routes`, body).then(routesCallback).catch(errCallback);
-const deleteRoute = () => axios.get(`${baseURL}/routes/${id}`).then(routesCallback).catch(errCallback);
-const addTick = () => axios.get(`${baseURL}/routes/${id}`).then(routesCallback).catch(errCallback);
+const getAllRoutes = () => axios.get(`${baseURL}/routes/`).then(routesCallback).catch(errCallback);
+const addRoute = body => axios.post(`${baseURL}/routes/`, body).then(routesCallback).catch(errCallback);
+const deleteRoute = id => axios.delete(`${baseURL}/routes/${id}/`).then(routesCallback).catch(errCallback);
+const addTick = id => axios.put(`${baseURL}/routes/${id}/`).then(routesCallback).catch(errCallback);
 
 const submitHandler = event => {
   event.preventDefault()
 
-  let name = document.querySelectory('#name');
-  let diff = document.querySelectory('input[name="diff"]:checked');
-  let grade = document.querySelectory('input[name="grade"]:checked');
-  let ticks = document.querySelectory('input[name="ticks"]:checked');
-  let imageURL = document.querySelectory('#route-image');
+  let name = document.querySelector('#name');
+  let diff = document.querySelector('#diff');
+  let grade = document.querySelector('#grade');
+  let ticks = document.querySelector('#ticks');
+  let imageURL = document.querySelector('#route-image');
 
   let bodyObj = {
     name: name.value,
     diff: diff.value,
     grade: grade.value,
-    ticks: ticks.value,
+    ticks: +ticks.value,
     imageURL: imageURL.value
   }
 
-  createRoute(bodyObj);
+  addRoute(bodyObj);
+  
+  name.value = '';
 
-  name.value = ''
-  diff.checked = false
-  grade.checked = false
-  ticks.checked = false
-  imageURL = ''
+  diff.value = '';
+  grade.value = '';
+  ticks.value = '';
+  imageURL.value = '';
 }
 
 const createRouteCard = route => {
@@ -58,21 +59,18 @@ const createRouteCard = route => {
   routeCard.classList.add('route-card');
 
   routeCard.innerHTML = `
-  <img class='route-image' alt='route image' src=${route.imageURL}/>
+  <img class='route-image' alt='route image' src='${route.imageURL}'/>
   <p class='name'>${route.name}</p>
   <p class='diff'>Difficulty: ${route.diff} Grade: ${route.grade}</p>
   <p class='ticks'>Ticks: ${route.ticks}</p>
   <div class='btns-container'>
-    <button onclick="addTick(${route.ticks})">Add Tick</button>
-    <button  onclick="deleteRoute(${route.id}">Delete</button>
+    <button onclick="addTick(${route.id})">Add Tick</button>
+    <button onclick="deleteRoute(${route.id})">Delete</button>
   </div>
   `
 
   routesContainer.appendChild(routeCard);
 }
-
-//document.getElementById('addTickBtn').addEventListener('click', addTick(route.id));
-//document.getElementById('deleteBtn').addEventListener('click', deleteRoute(route.id));
 
 const displayRoutes = arr => {
   routesContainer.innerHTML = ``
@@ -81,6 +79,6 @@ const displayRoutes = arr => {
   }
 }
 
-//form.addEventListener('submit', submitHandler())
+form.addEventListener('submit', submitHandler)
 
 getAllRoutes();
